@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За Еми</title>
+    <link rel="icon" href="img/image.png">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="foryou.css">
+    <style>
+
+    .hero h1 {
+        background: linear-gradient(90deg, #000000, #031a7e ,#ff0000);
+        mask-image: linear-gradient(90deg, #000000, #ff0000);
+        -webkit-mask-image: linear-gradient(90deg, #000000, #ff0000);
+        color: rgb(0, 0, 0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+    .about h2{
+        color: #0443cb;
+        font-size: 2rem;
+    }
+
+     .drivers h2 {
+        color: #0443cb;
+        font-size: 2.5rem;
+    }
+
+    .driver {
+        display: inline-block;
+        width: 400px;
+        background: #333;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        transition: transform 0.3s;
+        min-height: 550px; 
+        text-align: left;
+        position: relative; 
+    }
+    .driver p{
+        font-size: 1.2rem;
+        color: #ddd;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+    .second p{
+        margin-bottom: 20px;
+    }
+    .driver img{
+        width: 100%;
+        border-radius: 10px;
+        height: 400px; 
+        object-fit: scale-down;
+    }
+    @media (max-width: 467px) {
+     .driver p{
+         font-size: 1rem;
+     }
+     .driver{
+          height: 620px !important;
+        }
+    }
+    .first p{
+        margin-bottom: 40px !important;
+    }
+    @media (max-width: 396px) {
+        .driver p{
+         font-size: 0.9rem !important;
+        }
+    }
+    .marquee {
+  width: 600px;           /* фиксирана ширина */
+  overflow: hidden;       /* скрива излишното */
+  border-left: 2px solid #ffffff; /* за визуализация */
+  border-right: 2px solid #ffffff;
+  white-space: nowrap;    /* предотвратява пренасяне на текста */
+  box-sizing: border-box;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;     /* започва извън дясната страна */
+  animation: marquee 9s linear infinite;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #da0c0c;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+#musicButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #433f40;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+  z-index: 1001;
+}
+
+#musicButton:hover {
+  background-color: #af1241;
+}
+    </style>
+</head>
+<body>
+
+<header> 
+    <div class="logo">
+        <a href="index.html"><img src="img/image.png" alt="Лого"></a>
+    </div>
+    <div class="marquee">
+        <span class="marquee-text">Tu-tu-tu-du, ЕМИЛИАН СТАНЕВ, Tu-tu-tu-du, ЕМИЛИАН СТАНЕВ 🔥</span>
+    </div>
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">🎉 Начало</a></li>
+            <li><a href="photos.html">🎁 Снимки</a></li>
+            <li><a href="videos.html">🎬 Видео</a></li>
+            <li><a href="wishes.html">💌 Пожелания</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main-content">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>RedBull Racing</h1>
+            
+        </div>
+    </section>
+
+    <section class="about">
+        <img src="img/Redb.jpg" alt="Snimka na nas (otbora)">
+        <div class="text">
+            <h2>Исотрията как го измислихме</h2>
+            <p>Всичко запояна когато Стаси и Ори започнаха да обмислят за общ подарък и бъдещи иновации за рождения ден на Еми. След време, като разбраха кои други ще участват на рождения ден на Еми, решиха с няй-голямо удоволствие да ги присъединят към общия подарък и изненада, и така станаха 8-тима човека. Те бяха, Ник, Мими, Стаси, Ори, Петра, Рая, Скитълс, Марто!!!! С много усилия и удоволствие, успяха да изберат перфектните обувки с префектния размер. И така те успяха да направят всичко ТОП!!!!!!! </p>
+        </div>
+    </section>
+
+    <section class="drivers">
+        <h2>Пилоти</h2>
+        <div class="driver first">
+            <img src="img/EMIIIIIII.png" alt="Emi">
+            <h3>Емилиан Станев</h3>
+            <p>Най-добрата българска шофьорка във F1, която едва се побира в булида си. </p>
+        </div>
+        <div class="driver second">
+            <img src="img/image-removebg-preview (39).png" alt="Ниггер">
+            <h3>Еми в racing mode</h3>
+            <p>Най-добратааааааааааааа 🔥✨</p>
+        </div>
+    </section>
+</main>
+
+<button id="musicButton">🎵 Пусни музика</button>
+
+<audio id="bgMusic" src="Audios/tu-tu-tu-du-max-verstappen.mp3" loop></audio>
+<script>
+  const music = document.getElementById('bgMusic');
+const button = document.getElementById('musicButton');
+let isPlaying = false;
+
+button.addEventListener('click', () => {
+  if (isPlaying) {
+    music.pause();
+    button.textContent = '🎵 Пусни музика';
+  } else {
+    music.play();
+    button.textContent = '⏸️ Спри музиката';
+  }
+  isPlaying = !isPlaying;
+});
+</script>
+</body>
+</html>

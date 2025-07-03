@@ -1,0 +1,223 @@
+<!-- ЗАПОЧВА HTML ФАЙЛ -->
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Видео Галерия</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f8;
+      margin: 0;
+      padding: 100px 20px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff4e7a;
+    }
+
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* вместо 3 */
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+    .video-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .video-card iframe,
+.video-card video {
+  width: 100%;
+  height: 240px; /* или например 350px */
+  display: block;
+  border: none;
+}
+
+    .caption {
+      padding: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    header {
+      background-color: #dc7896;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .menu {
+      padding-left: 180px;
+    }
+
+    .menu ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .menu a:hover {
+      color: #d4113f;
+    }
+
+    .menu ul li:nth-child(1) a { animation-delay: 0.2s; }
+    .menu ul li:nth-child(2) a { animation-delay: 0.4s; }
+    .menu ul li:nth-child(3) a { animation-delay: 0.6s; }
+    .menu ul li:nth-child(4) a { animation-delay: 0.8s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bg-image {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .bg1 { top: -250px; left: 90px; width: 150px; transform: rotate(60deg); }
+    .bg2 { top: 0px; right: 370px; width: 120px; transform: rotate(0deg); }
+    .bg3 { top: 830px; left: 20px; width: 180px; transform: rotate(30deg); }
+    .bg4 { top: 120px; right: 780px; width: 140px; transform: rotate(-30deg); }
+    .bg5 { top: 980px; right: 400px; width: 140px; transform: rotate(-20deg); }
+    .bg6 { top: 900px; right: 500px; width: 140px; transform: rotate(180deg); }
+
+    .marquee {
+      width: 600px;
+      overflow: hidden;
+      border-left: 2px solid #b805a6;
+      border-right: 2px solid #b805a6;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 9s linear infinite;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #000000;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Фонови изображения -->
+<div class="bg-image bg1"><img src="img/Planktone.png" alt=""></div>
+<div class="bg-image bg2"><img src="img/BombardiroCrocodilo.png" alt=""></div>
+<div class="bg-image bg3"><img src="img/BalerinaCapuccina.png" alt=""></div>
+<div class="bg-image bg4"><img src="img/TUNGTUNGTUNGTUNGSAHUR.png" alt=""></div>
+<div class="bg-image bg5"><img src="img/NekaSeUspokoim.png" alt=""></div>
+<div class="bg-image bg6"><img src="img/THEROCKKKK.png" alt=""></div>
+
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="img/headerLogo.png" alt="Лого"></a>
+  </div>
+  <div class="marquee">
+    <span class="marquee-text">Най-хубавите ни моменти от рождения ти ден!!!!!</span>
+  </div>
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">⬅️ Начало</a></li>
+      <li><a href="Photos.html">📸Снимки</a></li>
+      <li><a href="wishes.html">💌 Пожелания</a></li>
+      <li><a href="foryou.html">🎉 За теб</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>🎬 Видео спомени от партито 🎂</h1>
+
+    <div class="gallery">
+    <div class="video-card">
+        <video controls>
+        <source src="Videos/Merdering.mp4" type="video/mp4">
+        Твоят браузър не поддържа видеото.
+        </video>
+        <div class="caption">Къде се намираме 😭</div>
+    </div>
+    <div class="video-card">
+        <video controls>
+        <source src="Videos/Lopatata.mp4" type="video/mp4">
+        Твоят браузър не поддържа видеото.
+        </video>
+        <div class="caption">Brainrot be like:</div>
+    </div>
+    <div class="video-card">
+        <video controls>
+        <source src="Videos/RunningIg.mp4" type="video/mp4">
+        Твоят браузър не поддържа видеото.
+        </video>
+        <div class="caption">Опит за убийство</div>
+    </div>
+    <div class="video-card">
+        <video controls>
+        <source src="Videos/AuraBeLike.mp4" type="video/mp4">
+        Твоят браузър не поддържа видеото.
+        </video>
+        <div class="caption">Власт</div>
+    </div>
+    <div class="video-card">
+        <video controls>
+        <source src="Videos/IFollowYou.mp4" type="video/mp4">
+        Твоят браузър не поддържа видеото.
+        </video>
+        <div class="caption">Най-добрите</div>
+    </div>
+    <div class="video-card">
+        <video controls>
+        <source src="Videos/F1.mp4" type="video/mp4">
+        Твоят браузър не поддържа видеото.
+        </video>
+        <div class="caption">FORMULA 1</div>
+    </div>
+    </div>
+    
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Галерия</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f8;
+      margin: 0;
+      padding: 100px 20px 20px; /* Оправен падинг заради фиксирания header */
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff4e7a;
+    }
+
+  .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 колони по равно */
+  gap: 20px; /* разстояние между снимките */
+  padding: 20px;
+  position: relative;
+  z-index: 2; /* по-високо от bg */
+}
+
+
+    .photo-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  height: 300px; /* 💡 фиксирана височина на картата */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 220px; /* 💡 фиксирана височина на снимката */
+  object-fit: cover; /* 💡 запълване без деформация */
+  display: block;
+}
+
+    .caption {
+      padding: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    header {
+      background-color: #dc7896;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0px 0px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .menu {
+  padding-left: 180px;
+    }
+    
+    .menu ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .menu a:hover {
+      color: #d4113f;
+    }
+
+    .menu ul li:nth-child(1) a { animation-delay: 0.2s; }
+    .menu ul li:nth-child(2) a { animation-delay: 0.4s; }
+    .menu ul li:nth-child(3) a { animation-delay: 0.6s; }
+    .menu ul li:nth-child(4) a { animation-delay: 0.8s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bg-image {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.bg1 {
+  top: -250px;
+  left: 90px;
+  width: 150px;
+  transform: rotate(60deg);
+}
+
+.bg2 {
+  top: 0px;
+  right: 370px;
+  width: 120px;
+  transform: rotate(0deg);
+}
+
+.bg3 {
+  top: 730px;
+  left: 20px;
+  width: 180px;
+  transform: rotate(30deg);
+}
+
+.bg4 {
+  top: 120px;
+  right: 780px;
+  width: 140px;
+  transform: rotate(-30deg);
+}
+.bg5 {
+  top: 840px;
+  right: 400px;
+  width: 140px;
+  transform: rotate(-20deg);
+}
+.bg6 {
+  top: 700px;
+  right: 500px;
+  width: 140px;
+  transform: rotate(180deg);
+}
+.marquee {
+  width: 600px;           /* фиксирана ширина */
+  overflow: hidden;       /* скрива излишното */
+  border-left: 2px solid #b805a6; /* за визуализация */
+  border-right: 2px solid #b805a6;
+  white-space: nowrap;    /* предотвратява пренасяне на текста */
+  box-sizing: border-box;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;     /* започва извън дясната страна */
+  animation: marquee 9s linear infinite;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 95vw;  /* максимум 95% от ширината на екрана */
+  max-height: 95vh; /* максимум 95% от височината */
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease;
+} 
+
+.lightbox-img:hover {
+  transform: scale(1.02); /* лек zoom ефект при задържане */
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.lightbox .close:hover {
+  color: #ff4e7a;
+}
+
+#musicButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #862140;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+  z-index: 1001;
+}
+
+#musicButton:hover {
+  background-color: #af1241;
+}
+  </style>
+</head>
+<body>
+<div class="bg-image bg1"><img src="img/Planktone.png" alt=""></div>
+<div class="bg-image bg2"><img src="img/BombardiroCrocodilo.png" alt=""></div>
+<div class="bg-image bg3"><img src="img/BalerinaCapuccina.png" alt=""></div>
+<div class="bg-image bg4"><img src="img/TUNGTUNGTUNGTUNGSAHUR.png" alt=""></div>
+<div class="bg-image bg5"><img src="img/NekaSeUspokoim.png" alt=""></div>
+<div class="bg-image bg6"><img src="img/THEROCKKKK.png" alt=""></div>
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="img/headerLogo.png" alt="Лого"></a>
+  </div>
+  <div class="marquee">
+    <span class="marquee-text">Los Traileros Dicen TRALALA, Los Traileros Dicen TRALALA, LOS TAILEROS DICEN TRALALAAAAAAAAAAA</span>
+  </div>
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">⬅️ Начало</a></li>
+      <li><a href="videos.html">🎬 Видео</a></li>
+      <li><a href="wishes.html">💌 Пожелания</a></li>
+      <li><a href="foryou.html">🎉 За теб</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>Галерия от Рождения Ден 🎂</h1>
+
+<div class="gallery">
+  <div class="photo-card">
+    <img src="img/РдтоЕми.jpg" alt="Снимка 1">
+    <div class="caption">Гладния жираф</div>
+  </div>
+  <div class="photo-card">
+    <img src="img/GAMBLINGADDICTION.jpg" alt="Снимка 2">
+    <div class="caption">GAMBLING ADDICTION!!!!</div>
+  </div>
+  <div class="photo-card">
+    <img src="img/512164369_747680401106204_1005838692033242165_n.jpg" alt="Снимка 3">
+    <div class="caption">Пияниците</div>
+  </div>
+  <div class="photo-card">
+    <img src="img/514395052_1257684239102213_7264887995467264330_n.jpg" alt="Снимка 4">
+    <div class="caption">DRINK ADDICTION!!!</div>
+  </div>
+  <div class="photo-card">
+    <img src="img/509417080_622023886957288_8692150179961339941_n.jpg" alt="Снимка 5">
+    <div class="caption">What the dawgggg doinggg?!!?!?</div>
+  </div>
+  <div class="photo-card">
+    <img src="img/Redb.jpg" alt="Снимка 6">
+    <div class="caption">Най-яките 😎🔥</div>
+  </div>
+</div>
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Увеличена снимка">
+</div>
+<button id="musicButton">🎵 Пусни музика</button>
+
+<audio id="bgMusic" src="Audios/los-tralaleritos-dicem-tralala.mp3" loop></audio>
+<script>
+  // Вземаме lightbox елементите
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+
+  // Намираме всички изображения в галерията
+  const galleryImages = document.querySelectorAll(".gallery img");
+
+  galleryImages.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src; // Зарежда снимката
+      lightboxImg.alt = img.alt;
+    });
+  });
+
+  // Затваряне при клик върху X
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // Затваряне при клик извън изображението
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  const music = document.getElementById('bgMusic');
+const button = document.getElementById('musicButton');
+let isPlaying = false;
+
+button.addEventListener('click', () => {
+  if (isPlaying) {
+    music.pause();
+    button.textContent = '🎵 Пусни музика';
+  } else {
+    music.play();
+    button.textContent = '⏸️ Спри музиката';
+  }
+  isPlaying = !isPlaying;
+});
+</script>
+</body>
+</html>

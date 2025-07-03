@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; 
+    color: white;
+}
+
+.hero {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background: #222;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.about img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.about .text {
+    width: 45%;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.drivers {
+    text-align: center;
+    padding: 50px;
+}
+
+
+h1{
+    margin-left: 0 !important;
+    text-align: center;
+    margin-right: 0 !important;
+}
+
+
+
+.driver:hover {
+    transform: scale(1.05);
+}
+
+.driver img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.driver h3 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.driver p {
+    font-size: 1.2rem;
+    color: #ddd;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about img {
+        width: 90%;
+    }
+
+    .about .text {
+        width: 100%;
+    }
+    div.sidebar{
+        margin-top: 170px !important;
+    }
+}
+
+
+
+@media (max-width: 1294px) {
+
+    .driver{
+        width: 100% !important;
+        margin: 0 !important;
+        margin-bottom: 40px !important;
+        margin-top: 10px !important;
+    }
+    
+}
+@media (max-width: 610px) {
+
+    .driver{
+        height: 500px !important;
+    }
+    h1{
+        font-size: 3rem !important;
+        margin-top: 0 !important;
+    }
+    p{
+        font-size: 1rem !important;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .driver{
+        height: 500px !important;
+    }
+    p{
+        font-size: 0.9rem !important;
+    }
+}
+@media (max-width: 391px) {
+    .driver{
+        height: 600px !important;
+    }
+}

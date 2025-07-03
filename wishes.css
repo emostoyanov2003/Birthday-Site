@@ -1,0 +1,65 @@
+header {
+      background-color: #fff0f5;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 4px dashed #d2691e;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .menu ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #862140;
+      font-size: 1.2em;
+    }
+
+    .marquee {
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
+    width: 300px;
+    }
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #862140;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.menu {
+  margin-left: 0; /* премахни излишен марджин ако има */
+  padding-left: 0; /* ако има */
+  transform: translateX(-40px); /* мести менюто наляво с 30px, пробвай стойности */
+}
+.menu ul li a:hover {
+  text-decoration: underline;
+  font-size: 21px;
+  color: rgb(255, 0, 221);
+  transition: all 0.4s ease-in-out;
+}
